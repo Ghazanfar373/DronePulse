@@ -134,21 +134,25 @@ class Program
     static void ParseMAVLinkMessage(byte[] message)
     {
         if (message.Length < 8) return;
-
+        //Console.WriteLine($"Message Length: {message.Length}");
+        string hex = BitConverter.ToString(message, 0, Math.Min(32, message.Length)).Replace("-", " ");
         byte messageId = message[5]; // Message ID is at index 5
-        
+        //Console.WriteLine($"{hex,-48}");
+        //Console.WriteLine($"ID: {messageId}");
         switch (messageId)
-        {
-            case MSG_ID_GPS_RAW_INT:
-                ParseGpsRawInt(message);
-                break;
-            case MSG_ID_GLOBAL_POSITION_INT:
-                ParseGlobalPositionInt(message);
-                break;
-            case MSG_ID_GPS_STATUS:
-                ParseGpsStatus(message);
-                break;
+        { 
+            // case MSG_ID_GPS_RAW_INT:
+            //     Console.WriteLine($"ID: {messageId}");
+            //     ParseGpsRawInt(message);
+            //     break;
+        //     case MSG_ID_GLOBAL_POSITION_INT:
+        //         ParseGlobalPositionInt(message);
+        //         break;
+        //     case MSG_ID_GPS_STATUS:
+        //         ParseGpsStatus(message);
+        //         break;
             case MSG_ID_ATTITUDE:
+        Console.WriteLine($"ID: {messageId}");
                 ParseAttitude(message);
                 break;
             // case MSG_ID_HEARTBEAT:
