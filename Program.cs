@@ -139,15 +139,15 @@ class Program
         
         switch (messageId)
         {
-            // case MSG_ID_GPS_RAW_INT:
-            //     ParseGpsRawInt(message);
-            //     break;
-            // case MSG_ID_GLOBAL_POSITION_INT:
-            //     ParseGlobalPositionInt(message);
-            //     break;
-            // case MSG_ID_GPS_STATUS:
-            //     ParseGpsStatus(message);
-            //     break;
+            case MSG_ID_GPS_RAW_INT:
+                ParseGpsRawInt(message);
+                break;
+            case MSG_ID_GLOBAL_POSITION_INT:
+                ParseGlobalPositionInt(message);
+                break;
+            case MSG_ID_GPS_STATUS:
+                ParseGpsStatus(message);
+                break;
             case MSG_ID_ATTITUDE:
                 ParseAttitude(message);
                 break;
