@@ -10,8 +10,12 @@ A C# application for interfacing with drones using the MAVLink protocol. This to
   - Altitude and relative altitude
   - Attitude (roll, pitch, yaw)
   - Ground speed and heading
-- Simple command-line interface
-- Configurable serial port settings
+- Interactive Terminal User Interface (TUI) dashboard
+- Real-time display of key telemetry:
+  - Attitude (Roll, Pitch, Yaw)
+  - GPS (Latitude, Longitude, Altitude)
+  - Global Position (Relative Altitude, Heading)
+- Configuration via an external `appsettings.json` file
 
 ## Prerequisites
 
@@ -46,12 +50,19 @@ A C# application for interfacing with drones using the MAVLink protocol. This to
 
 ## Configuration
 
-Edit the following variables in `Program.cs` to match your setup:
+Configuration is handled via the `appsettings.json` file. Edit this file to match your serial port setup:
 
-```csharp
-string portName = "COM8";  // Change this to your serial port
-int baudRate = 115200;      // Adjust baud rate if needed
+```json
+{
+  "SerialPortSettings": {
+    "PortName": "COM8",
+    "BaudRate": 115200
+  }
+}
 ```
+
+- `PortName`: The COM port your flight controller is connected to (e.g., `COM3` on Windows or `/dev/ttyUSB0` on Linux).
+- `BaudRate`: The serial communication speed. 115200 is common, but adjust if your device uses a different rate.
 
 ## MAVLink Messages Supported
 
