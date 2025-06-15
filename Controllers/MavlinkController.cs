@@ -33,7 +33,7 @@ namespace DronePulse.Controllers
 
                 if (!serialPort.IsOpen) return;
 
-                _telemetryData.Status = $"Connected to {_portName}. Waiting for data...";
+                _telemetryData.Status = $"Connected to {_portName}. Receiving data...";
 
                 var buffer = new byte[1024];
                 int bufferPosition = 0;
