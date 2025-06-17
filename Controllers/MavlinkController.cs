@@ -1,5 +1,5 @@
 using System;
-using System.IO.Ports;
+using DronePulse.Interfaces;
 using System.Threading;
 using System.Threading.Tasks;
 using DronePulse.Models;
@@ -13,36 +13,37 @@ namespace DronePulse.Controllers
         private const byte MSG_ID_GLOBAL_POSITION_INT = 33;
 
         private readonly TelemetryData _telemetryData;
-        private readonly string _portName;
-        private readonly int _baudRate;
+        private readonly IConnection _connection;
 
-        public MavlinkController(TelemetryData telemetryData, string portName, int baudRate)
+        public MavlinkController(TelemetryData telemetryData, IConnection connection)
         {
             _telemetryData = telemetryData;
-            _portName = portName;
-            _baudRate = baudRate;
+            _connection = connection;
         }
 
         public async Task Start(CancellationToken token)
         {
-            _telemetryData.Status = $"Connecting to {_portName}...";
+            _telemetryData.Status = "Connecting...";
             try
             {
-                using var serialPort = new SerialPort(_portName, _baudRate);
-                serialPort.Open();
+                _connection.Open();
 
-                if (!serialPort.IsOpen) return;
+                if (!_connection.IsOpen)
+                {
+                    _telemetryData.Status = "Connection failed.";
+                    return;
+                }
 
-                _telemetryData.Status = $"Connected to {_portName}. Receiving data...";
+                _telemetryData.Status = "Connected. Receiving data...";
 
                 var buffer = new byte[1024];
                 int bufferPosition = 0;
 
                 while (!token.IsCancellationRequested)
                 {
-                    if (serialPort.BytesToRead > 0)
+                    if (_connection.BytesToRead > 0)
                     {
-                        int bytesRead = await serialPort.BaseStream.ReadAsync(buffer, bufferPosition, buffer.Length - bufferPosition, token);
+                        int bytesRead = await _connection.ReadAsync(buffer, bufferPosition, buffer.Length - bufferPosition, token);
                         bufferPosition += bytesRead;
 
                         int processedBytes = ProcessMAVLinkBuffer(buffer, ref bufferPosition);
@@ -69,6 +70,7 @@ namespace DronePulse.Controllers
             }
             finally
             {
+                _connection.Dispose();
                 _telemetryData.Status = "Disconnected";
             }
         }
