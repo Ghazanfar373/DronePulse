@@ -34,351 +34,370 @@ namespace DronePulse
         /// </summary>
         private void InitializeComponent()
         {
-            this.attitudeBox = new System.Windows.Forms.GroupBox();
-            this.rollLabel = new System.Windows.Forms.Label();
-            this.pitchLabel = new System.Windows.Forms.Label();
-            this.yawLabel = new System.Windows.Forms.Label();
-            this.gpsBox = new System.Windows.Forms.GroupBox();
-            this.fixLabel = new System.Windows.Forms.Label();
-            this.latLabel = new System.Windows.Forms.Label();
-            this.lonLabel = new System.Windows.Forms.Label();
-            this.altLabel = new System.Windows.Forms.Label();
-            this.posBox = new System.Windows.Forms.GroupBox();
-            this.relAltLabel = new System.Windows.Forms.Label();
-            this.headingLabel = new System.Windows.Forms.Label();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.connectionBox = new System.Windows.Forms.GroupBox();
-            this.connectButton = new System.Windows.Forms.Button();
-            this.disconnectButton = new System.Windows.Forms.Button();
-            this.connectionTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.serialPanel = new System.Windows.Forms.Panel();
-            this.comPortLabel = new System.Windows.Forms.Label();
-            this.comPortComboBox = new System.Windows.Forms.ComboBox();
-            this.baudRateLabel = new System.Windows.Forms.Label();
-            this.baudRateTextBox = new System.Windows.Forms.TextBox();
-            this.serialPanel = new System.Windows.Forms.Panel();
-            this.udpPanel = new System.Windows.Forms.Panel();
-            this.tcpPanel = new System.Windows.Forms.Panel();
-            this.udpPortLabel = new System.Windows.Forms.Label();
-            this.udpPortTextBox = new System.Windows.Forms.TextBox();
-            this.tcpIpAddressLabel = new System.Windows.Forms.Label();
-            this.tcpIpAddressTextBox = new System.Windows.Forms.TextBox();
-            this.tcpPortLabel = new System.Windows.Forms.Label();
-            this.tcpPortTextBox = new System.Windows.Forms.TextBox();
-            this.attitudeBox.SuspendLayout();
-            this.connectionBox.SuspendLayout();
-            this.serialPanel.SuspendLayout();
-            this.udpPanel.SuspendLayout();
-            this.tcpPanel.SuspendLayout();
-            this.gpsBox.SuspendLayout();
-            this.posBox.SuspendLayout();
-            this.statusStrip.SuspendLayout();
-            this.SuspendLayout();
+            attitudeBox = new GroupBox();
+            rollLabel = new Label();
+            pitchLabel = new Label();
+            yawLabel = new Label();
+            gpsBox = new GroupBox();
+            fixLabel = new Label();
+            latLabel = new Label();
+            lonLabel = new Label();
+            altLabel = new Label();
+            posBox = new GroupBox();
+            relAltLabel = new Label();
+            headingLabel = new Label();
+            statusStrip = new StatusStrip();
+            statusLabel = new ToolStripStatusLabel();
+            connectionBox = new GroupBox();
+            connectButton = new Button();
+            disconnectButton = new Button();
+            connectionTypeComboBox = new ComboBox();
+            serialPanel = new Panel();
+            comPortLabel = new Label();
+            comPortComboBox = new ComboBox();
+            baudRateLabel = new Label();
+            baudRateTextBox = new TextBox();
+            udpPanel = new Panel();
+            udpPortLabel = new Label();
+            udpPortTextBox = new TextBox();
+            tcpPanel = new Panel();
+            tcpIpAddressLabel = new Label();
+            tcpIpAddressTextBox = new TextBox();
+            tcpPortLabel = new Label();
+            tcpPortTextBox = new TextBox();
+            attitudeBox.SuspendLayout();
+            gpsBox.SuspendLayout();
+            posBox.SuspendLayout();
+            statusStrip.SuspendLayout();
+            connectionBox.SuspendLayout();
+            serialPanel.SuspendLayout();
+            udpPanel.SuspendLayout();
+            tcpPanel.SuspendLayout();
+            SuspendLayout();
             // 
             // attitudeBox
             // 
-            this.attitudeBox.Controls.Add(this.rollLabel);
-            this.attitudeBox.Controls.Add(this.pitchLabel);
-            this.attitudeBox.Controls.Add(this.yawLabel);
-            this.attitudeBox.Location = new System.Drawing.Point(10, 10);
-            this.attitudeBox.Name = "attitudeBox";
-            this.attitudeBox.Size = new System.Drawing.Size(250, 120);
-            this.attitudeBox.TabIndex = 0;
-            this.attitudeBox.TabStop = false;
-            this.attitudeBox.Text = "Attitude";
+            attitudeBox.Controls.Add(rollLabel);
+            attitudeBox.Controls.Add(pitchLabel);
+            attitudeBox.Controls.Add(yawLabel);
+            attitudeBox.Location = new Point(11, 13);
+            attitudeBox.Margin = new Padding(3, 4, 3, 4);
+            attitudeBox.Name = "attitudeBox";
+            attitudeBox.Padding = new Padding(3, 4, 3, 4);
+            attitudeBox.Size = new Size(286, 160);
+            attitudeBox.TabIndex = 0;
+            attitudeBox.TabStop = false;
+            attitudeBox.Text = "Attitude";
             // 
             // rollLabel
             // 
-            this.rollLabel.Location = new System.Drawing.Point(10, 20);
-            this.rollLabel.Name = "rollLabel";
-            this.rollLabel.Size = new System.Drawing.Size(230, 23);
-            this.rollLabel.TabIndex = 0;
+            rollLabel.Location = new Point(11, 27);
+            rollLabel.Name = "rollLabel";
+            rollLabel.Size = new Size(263, 31);
+            rollLabel.TabIndex = 0;
             // 
             // pitchLabel
             // 
-            this.pitchLabel.Location = new System.Drawing.Point(10, 50);
-            this.pitchLabel.Name = "pitchLabel";
-            this.pitchLabel.Size = new System.Drawing.Size(230, 23);
-            this.pitchLabel.TabIndex = 1;
+            pitchLabel.Location = new Point(11, 67);
+            pitchLabel.Name = "pitchLabel";
+            pitchLabel.Size = new Size(263, 31);
+            pitchLabel.TabIndex = 1;
             // 
             // yawLabel
             // 
-            this.yawLabel.Location = new System.Drawing.Point(10, 80);
-            this.yawLabel.Name = "yawLabel";
-            this.yawLabel.Size = new System.Drawing.Size(230, 23);
-            this.yawLabel.TabIndex = 2;
+            yawLabel.Location = new Point(11, 107);
+            yawLabel.Name = "yawLabel";
+            yawLabel.Size = new Size(263, 31);
+            yawLabel.TabIndex = 2;
             // 
             // gpsBox
             // 
-            this.gpsBox.Controls.Add(this.fixLabel);
-            this.gpsBox.Controls.Add(this.latLabel);
-            this.gpsBox.Controls.Add(this.lonLabel);
-            this.gpsBox.Controls.Add(this.altLabel);
-            this.gpsBox.Location = new System.Drawing.Point(10, 140);
-            this.gpsBox.Name = "gpsBox";
-            this.gpsBox.Size = new System.Drawing.Size(250, 180);
-            this.gpsBox.TabIndex = 1;
-            this.gpsBox.TabStop = false;
-            this.gpsBox.Text = "GPS Raw";
+            gpsBox.Controls.Add(fixLabel);
+            gpsBox.Controls.Add(latLabel);
+            gpsBox.Controls.Add(lonLabel);
+            gpsBox.Controls.Add(altLabel);
+            gpsBox.Location = new Point(11, 187);
+            gpsBox.Margin = new Padding(3, 4, 3, 4);
+            gpsBox.Name = "gpsBox";
+            gpsBox.Padding = new Padding(3, 4, 3, 4);
+            gpsBox.Size = new Size(286, 240);
+            gpsBox.TabIndex = 1;
+            gpsBox.TabStop = false;
+            gpsBox.Text = "GPS Raw";
             // 
             // fixLabel
             // 
-            this.fixLabel.Location = new System.Drawing.Point(10, 20);
-            this.fixLabel.Name = "fixLabel";
-            this.fixLabel.Size = new System.Drawing.Size(230, 23);
-            this.fixLabel.TabIndex = 0;
+            fixLabel.Location = new Point(11, 27);
+            fixLabel.Name = "fixLabel";
+            fixLabel.Size = new Size(263, 31);
+            fixLabel.TabIndex = 0;
             // 
             // latLabel
             // 
-            this.latLabel.Location = new System.Drawing.Point(10, 50);
-            this.latLabel.Name = "latLabel";
-            this.latLabel.Size = new System.Drawing.Size(230, 23);
-            this.latLabel.TabIndex = 1;
+            latLabel.Location = new Point(11, 67);
+            latLabel.Name = "latLabel";
+            latLabel.Size = new Size(263, 31);
+            latLabel.TabIndex = 1;
             // 
             // lonLabel
             // 
-            this.lonLabel.Location = new System.Drawing.Point(10, 80);
-            this.lonLabel.Name = "lonLabel";
-            this.lonLabel.Size = new System.Drawing.Size(230, 23);
-            this.lonLabel.TabIndex = 2;
+            lonLabel.Location = new Point(11, 107);
+            lonLabel.Name = "lonLabel";
+            lonLabel.Size = new Size(263, 31);
+            lonLabel.TabIndex = 2;
             // 
             // altLabel
             // 
-            this.altLabel.Location = new System.Drawing.Point(10, 110);
-            this.altLabel.Name = "altLabel";
-            this.altLabel.Size = new System.Drawing.Size(230, 23);
-            this.altLabel.TabIndex = 3;
+            altLabel.Location = new Point(11, 147);
+            altLabel.Name = "altLabel";
+            altLabel.Size = new Size(263, 31);
+            altLabel.TabIndex = 3;
             // 
             // posBox
             // 
-            this.posBox.Controls.Add(this.relAltLabel);
-            this.posBox.Controls.Add(this.headingLabel);
-            this.posBox.Location = new System.Drawing.Point(270, 10);
-            this.posBox.Name = "posBox";
-            this.posBox.Size = new System.Drawing.Size(300, 120);
-            this.posBox.TabIndex = 2;
-            this.posBox.TabStop = false;
-            this.posBox.Text = "Global Position";
+            posBox.Controls.Add(relAltLabel);
+            posBox.Controls.Add(headingLabel);
+            posBox.Location = new Point(309, 13);
+            posBox.Margin = new Padding(3, 4, 3, 4);
+            posBox.Name = "posBox";
+            posBox.Padding = new Padding(3, 4, 3, 4);
+            posBox.Size = new Size(343, 160);
+            posBox.TabIndex = 2;
+            posBox.TabStop = false;
+            posBox.Text = "Global Position";
             // 
             // relAltLabel
             // 
-            this.relAltLabel.Location = new System.Drawing.Point(10, 20);
-            this.relAltLabel.Name = "relAltLabel";
-            this.relAltLabel.Size = new System.Drawing.Size(280, 23);
-            this.relAltLabel.TabIndex = 0;
+            relAltLabel.Location = new Point(11, 27);
+            relAltLabel.Name = "relAltLabel";
+            relAltLabel.Size = new Size(320, 31);
+            relAltLabel.TabIndex = 0;
             // 
             // headingLabel
             // 
-            this.headingLabel.Location = new System.Drawing.Point(10, 50);
-            this.headingLabel.Name = "headingLabel";
-            this.headingLabel.Size = new System.Drawing.Size(280, 23);
-            this.headingLabel.TabIndex = 1;
+            headingLabel.Location = new Point(11, 67);
+            headingLabel.Name = "headingLabel";
+            headingLabel.Size = new Size(320, 31);
+            headingLabel.TabIndex = 1;
             // 
             // statusStrip
             // 
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.statusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 338);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(584, 22);
-            this.statusStrip.TabIndex = 3;
-            this.statusStrip.Text = "statusStrip1";
+            statusStrip.ImageScalingSize = new Size(20, 20);
+            statusStrip.Items.AddRange(new ToolStripItem[] { statusLabel });
+            statusStrip.Location = new Point(0, 505);
+            statusStrip.Name = "statusStrip";
+            statusStrip.Padding = new Padding(1, 0, 16, 0);
+            statusStrip.Size = new Size(808, 22);
+            statusStrip.TabIndex = 3;
+            statusStrip.Text = "statusStrip1";
             // 
             // statusLabel
             // 
-            this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(0, 17);
+            statusLabel.Name = "statusLabel";
+            statusLabel.Size = new Size(0, 16);
             // 
             // connectionBox
             // 
-            this.connectionBox.Controls.Add(this.connectButton);
-            this.connectionBox.Controls.Add(this.disconnectButton);
-            this.connectionBox.Controls.Add(this.connectionTypeComboBox);
-            this.connectionBox.Controls.Add(this.serialPanel);
-            this.connectionBox.Controls.Add(this.udpPanel);
-            this.connectionBox.Controls.Add(this.tcpPanel);
-            this.connectionBox.Location = new System.Drawing.Point(270, 140);
-            this.connectionBox.Name = "connectionBox";
-            this.connectionBox.Size = new System.Drawing.Size(300, 180);
-            this.connectionBox.TabIndex = 4;
-            this.connectionBox.TabStop = false;
-            this.connectionBox.Text = "Connection Settings";
+            connectionBox.Controls.Add(connectButton);
+            connectionBox.Controls.Add(disconnectButton);
+            connectionBox.Controls.Add(connectionTypeComboBox);
+            connectionBox.Controls.Add(serialPanel);
+            connectionBox.Controls.Add(udpPanel);
+            connectionBox.Controls.Add(tcpPanel);
+            connectionBox.Location = new Point(309, 187);
+            connectionBox.Margin = new Padding(3, 4, 3, 4);
+            connectionBox.Name = "connectionBox";
+            connectionBox.Padding = new Padding(3, 4, 3, 4);
+            connectionBox.Size = new Size(343, 240);
+            connectionBox.TabIndex = 4;
+            connectionBox.TabStop = false;
+            connectionBox.Text = "Connection Settings";
             // 
             // connectButton
             // 
-            this.connectButton.Location = new System.Drawing.Point(10, 140);
-            this.connectButton.Name = "connectButton";
-            this.connectButton.Size = new System.Drawing.Size(75, 23);
-            this.connectButton.TabIndex = 7;
-            this.connectButton.Text = "Connect";
+            connectButton.Location = new Point(11, 204);
+            connectButton.Margin = new Padding(3, 4, 3, 4);
+            connectButton.Name = "connectButton";
+            connectButton.Size = new Size(86, 31);
+            connectButton.TabIndex = 7;
+            connectButton.Text = "Connect";
             // 
             // disconnectButton
             // 
-            this.disconnectButton.Location = new System.Drawing.Point(215, 140);
-            this.disconnectButton.Name = "disconnectButton";
-            this.disconnectButton.Size = new System.Drawing.Size(75, 23);
-            this.disconnectButton.TabIndex = 6;
-            this.disconnectButton.Text = "Disconnect";
+            disconnectButton.Location = new Point(241, 204);
+            disconnectButton.Margin = new Padding(3, 4, 3, 4);
+            disconnectButton.Name = "disconnectButton";
+            disconnectButton.Size = new Size(91, 31);
+            disconnectButton.TabIndex = 6;
+            disconnectButton.Text = "Disconnect";
             // 
             // connectionTypeComboBox
             // 
-            this.connectionTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.connectionTypeComboBox.FormattingEnabled = true;
-            this.connectionTypeComboBox.Location = new System.Drawing.Point(10, 20);
-            this.connectionTypeComboBox.Name = "connectionTypeComboBox";
-            this.connectionTypeComboBox.Size = new System.Drawing.Size(280, 23);
-            this.connectionTypeComboBox.TabIndex = 5;
+            connectionTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            connectionTypeComboBox.FormattingEnabled = true;
+            connectionTypeComboBox.Location = new Point(11, 27);
+            connectionTypeComboBox.Margin = new Padding(3, 4, 3, 4);
+            connectionTypeComboBox.Name = "connectionTypeComboBox";
+            connectionTypeComboBox.Size = new Size(319, 28);
+            connectionTypeComboBox.TabIndex = 5;
             // 
             // serialPanel
             // 
-            this.serialPanel.Controls.Add(this.comPortLabel);
-            this.serialPanel.Controls.Add(this.comPortComboBox);
-            this.serialPanel.Controls.Add(this.baudRateLabel);
-            this.serialPanel.Controls.Add(this.baudRateTextBox);
-            this.serialPanel.Location = new System.Drawing.Point(5, 50);
-            this.serialPanel.Name = "serialPanel";
-            this.serialPanel.Size = new System.Drawing.Size(290, 85);
-            this.serialPanel.TabIndex = 8;
+            serialPanel.Controls.Add(comPortLabel);
+            serialPanel.Controls.Add(comPortComboBox);
+            serialPanel.Controls.Add(baudRateLabel);
+            serialPanel.Controls.Add(baudRateTextBox);
+            serialPanel.Location = new Point(6, 62);
+            serialPanel.Margin = new Padding(3, 4, 3, 4);
+            serialPanel.Name = "serialPanel";
+            serialPanel.Size = new Size(331, 138);
+            serialPanel.TabIndex = 8;
             // 
             // comPortLabel
             // 
-            this.comPortLabel.AutoSize = true;
-            this.comPortLabel.Location = new System.Drawing.Point(5, 10);
-            this.comPortLabel.Name = "comPortLabel";
-            this.comPortLabel.Size = new System.Drawing.Size(53, 15);
-            this.comPortLabel.TabIndex = 4;
-            this.comPortLabel.Text = "COM Port";
+            comPortLabel.AutoSize = true;
+            comPortLabel.Location = new Point(6, 13);
+            comPortLabel.Name = "comPortLabel";
+            comPortLabel.Size = new Size(72, 20);
+            comPortLabel.TabIndex = 4;
+            comPortLabel.Text = "COM Port";
             // 
             // comPortComboBox
             // 
-            this.comPortComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comPortComboBox.FormattingEnabled = true;
-            this.comPortComboBox.Location = new System.Drawing.Point(5, 30);
-            this.comPortComboBox.Name = "comPortComboBox";
-            this.comPortComboBox.Size = new System.Drawing.Size(280, 23);
-            this.comPortComboBox.TabIndex = 3;
+            comPortComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            comPortComboBox.FormattingEnabled = true;
+            comPortComboBox.Location = new Point(6, 40);
+            comPortComboBox.Margin = new Padding(3, 4, 3, 4);
+            comPortComboBox.Name = "comPortComboBox";
+            comPortComboBox.Size = new Size(319, 28);
+            comPortComboBox.TabIndex = 3;
             // 
             // baudRateLabel
             // 
-            this.baudRateLabel.AutoSize = true;
-            this.baudRateLabel.Location = new System.Drawing.Point(5, 60);
-            this.baudRateLabel.Name = "baudRateLabel";
-            this.baudRateLabel.Size = new System.Drawing.Size(64, 15);
-            this.baudRateLabel.TabIndex = 2;
-            this.baudRateLabel.Text = "Baud Rate";
+            baudRateLabel.AutoSize = true;
+            baudRateLabel.Location = new Point(6, 80);
+            baudRateLabel.Name = "baudRateLabel";
+            baudRateLabel.Size = new Size(77, 20);
+            baudRateLabel.TabIndex = 2;
+            baudRateLabel.Text = "Baud Rate";
             // 
             // baudRateTextBox
             // 
-            this.baudRateTextBox.Location = new System.Drawing.Point(5, 80);
-            this.baudRateTextBox.Name = "baudRateTextBox";
-            this.baudRateTextBox.Size = new System.Drawing.Size(280, 23);
-            this.baudRateTextBox.TabIndex = 1;
+            baudRateTextBox.Location = new Point(6, 107);
+            baudRateTextBox.Margin = new Padding(3, 4, 3, 4);
+            baudRateTextBox.Name = "baudRateTextBox";
+            baudRateTextBox.Size = new Size(319, 27);
+            baudRateTextBox.TabIndex = 1;
             // 
             // udpPanel
             // 
-            this.udpPanel.Controls.Add(this.udpPortLabel);
-            this.udpPanel.Controls.Add(this.udpPortTextBox);
-            this.udpPanel.Location = new System.Drawing.Point(5, 50);
-            this.udpPanel.Name = "udpPanel";
-            this.udpPanel.Size = new System.Drawing.Size(290, 85);
-            this.udpPanel.TabIndex = 9;
-            this.udpPanel.Visible = false;
+            udpPanel.Controls.Add(udpPortLabel);
+            udpPanel.Controls.Add(udpPortTextBox);
+            udpPanel.Location = new Point(6, 67);
+            udpPanel.Margin = new Padding(3, 4, 3, 4);
+            udpPanel.Name = "udpPanel";
+            udpPanel.Size = new Size(331, 113);
+            udpPanel.TabIndex = 9;
+            udpPanel.Visible = false;
             // 
             // udpPortLabel
             // 
-            this.udpPortLabel.AutoSize = true;
-            this.udpPortLabel.Location = new System.Drawing.Point(5, 10);
-            this.udpPortLabel.Name = "udpPortLabel";
-            this.udpPortLabel.Size = new System.Drawing.Size(68, 15);
-            this.udpPortLabel.TabIndex = 4;
-            this.udpPortLabel.Text = "Listen Port:";
+            udpPortLabel.AutoSize = true;
+            udpPortLabel.Location = new Point(6, 13);
+            udpPortLabel.Name = "udpPortLabel";
+            udpPortLabel.Size = new Size(80, 20);
+            udpPortLabel.TabIndex = 4;
+            udpPortLabel.Text = "Listen Port:";
             // 
             // udpPortTextBox
             // 
-            this.udpPortTextBox.Location = new System.Drawing.Point(100, 7);
-            this.udpPortTextBox.Name = "udpPortTextBox";
-            this.udpPortTextBox.Size = new System.Drawing.Size(180, 23);
-            this.udpPortTextBox.TabIndex = 3;
-            this.udpPortTextBox.Text = "14550";
+            udpPortTextBox.Location = new Point(114, 9);
+            udpPortTextBox.Margin = new Padding(3, 4, 3, 4);
+            udpPortTextBox.Name = "udpPortTextBox";
+            udpPortTextBox.Size = new Size(205, 27);
+            udpPortTextBox.TabIndex = 3;
+            udpPortTextBox.Text = "14550";
             // 
             // tcpPanel
             // 
-            this.tcpPanel.Controls.Add(this.tcpIpAddressLabel);
-            this.tcpPanel.Controls.Add(this.tcpIpAddressTextBox);
-            this.tcpPanel.Controls.Add(this.tcpPortLabel);
-            this.tcpPanel.Controls.Add(this.tcpPortTextBox);
-            this.tcpPanel.Location = new System.Drawing.Point(5, 50);
-            this.tcpPanel.Name = "tcpPanel";
-            this.tcpPanel.Size = new System.Drawing.Size(290, 85);
-            this.tcpPanel.TabIndex = 10;
-            this.tcpPanel.Visible = false;
+            tcpPanel.Controls.Add(tcpIpAddressLabel);
+            tcpPanel.Controls.Add(tcpIpAddressTextBox);
+            tcpPanel.Controls.Add(tcpPortLabel);
+            tcpPanel.Controls.Add(tcpPortTextBox);
+            tcpPanel.Location = new Point(6, 67);
+            tcpPanel.Margin = new Padding(3, 4, 3, 4);
+            tcpPanel.Name = "tcpPanel";
+            tcpPanel.Size = new Size(331, 113);
+            tcpPanel.TabIndex = 10;
+            tcpPanel.Visible = false;
             // 
             // tcpIpAddressLabel
             // 
-            this.tcpIpAddressLabel.AutoSize = true;
-            this.tcpIpAddressLabel.Location = new System.Drawing.Point(5, 10);
-            this.tcpIpAddressLabel.Name = "tcpIpAddressLabel";
-            this.tcpIpAddressLabel.Size = new System.Drawing.Size(65, 15);
-            this.tcpIpAddressLabel.TabIndex = 4;
-            this.tcpIpAddressLabel.Text = "IP Address:";
+            tcpIpAddressLabel.AutoSize = true;
+            tcpIpAddressLabel.Location = new Point(6, 13);
+            tcpIpAddressLabel.Name = "tcpIpAddressLabel";
+            tcpIpAddressLabel.Size = new Size(81, 20);
+            tcpIpAddressLabel.TabIndex = 4;
+            tcpIpAddressLabel.Text = "IP Address:";
             // 
             // tcpIpAddressTextBox
             // 
-            this.tcpIpAddressTextBox.Location = new System.Drawing.Point(100, 7);
-            this.tcpIpAddressTextBox.Name = "tcpIpAddressTextBox";
-            this.tcpIpAddressTextBox.Size = new System.Drawing.Size(180, 23);
-            this.tcpIpAddressTextBox.TabIndex = 3;
-            this.tcpIpAddressTextBox.Text = "127.0.0.1";
+            tcpIpAddressTextBox.Location = new Point(114, 9);
+            tcpIpAddressTextBox.Margin = new Padding(3, 4, 3, 4);
+            tcpIpAddressTextBox.Name = "tcpIpAddressTextBox";
+            tcpIpAddressTextBox.Size = new Size(205, 27);
+            tcpIpAddressTextBox.TabIndex = 3;
+            tcpIpAddressTextBox.Text = "127.0.0.1";
             // 
             // tcpPortLabel
             // 
-            this.tcpPortLabel.AutoSize = true;
-            this.tcpPortLabel.Location = new System.Drawing.Point(5, 40);
-            this.tcpPortLabel.Name = "tcpPortLabel";
-            this.tcpPortLabel.Size = new System.Drawing.Size(32, 15);
-            this.tcpPortLabel.TabIndex = 2;
-            this.tcpPortLabel.Text = "Port:";
+            tcpPortLabel.AutoSize = true;
+            tcpPortLabel.Location = new Point(6, 53);
+            tcpPortLabel.Name = "tcpPortLabel";
+            tcpPortLabel.Size = new Size(38, 20);
+            tcpPortLabel.TabIndex = 2;
+            tcpPortLabel.Text = "Port:";
             // 
             // tcpPortTextBox
             // 
-            this.tcpPortTextBox.Location = new System.Drawing.Point(100, 37);
-            this.tcpPortTextBox.Name = "tcpPortTextBox";
-            this.tcpPortTextBox.Size = new System.Drawing.Size(180, 23);
-            this.tcpPortTextBox.TabIndex = 1;
-            this.tcpPortTextBox.Text = "5760";
+            tcpPortTextBox.Location = new Point(114, 49);
+            tcpPortTextBox.Margin = new Padding(3, 4, 3, 4);
+            tcpPortTextBox.Name = "tcpPortTextBox";
+            tcpPortTextBox.Size = new Size(205, 27);
+            tcpPortTextBox.TabIndex = 1;
+            tcpPortTextBox.Text = "5760";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 361);
-            this.Controls.Add(this.statusStrip);
-            this.Controls.Add(this.posBox);
-            this.Controls.Add(this.gpsBox);
-            this.Controls.Add(this.connectionBox);
-            this.Controls.Add(this.attitudeBox);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.Name = "MainForm";
-            this.Text = "DronePulse Telemetry";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
-            this.Load += new System.EventHandler(this.MainForm_Load);
-
-            this.attitudeBox.ResumeLayout(false);
-            this.gpsBox.ResumeLayout(false);
-            this.posBox.ResumeLayout(false);
-            this.statusStrip.ResumeLayout(false);
-            this.statusStrip.PerformLayout();
-            this.connectionBox.ResumeLayout(false);
-            this.serialPanel.ResumeLayout(false);
-            this.serialPanel.PerformLayout();
-            this.udpPanel.ResumeLayout(false);
-            this.udpPanel.PerformLayout();
-            this.tcpPanel.ResumeLayout(false);
-            this.tcpPanel.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(808, 527);
+            Controls.Add(statusStrip);
+            Controls.Add(posBox);
+            Controls.Add(gpsBox);
+            Controls.Add(connectionBox);
+            Controls.Add(attitudeBox);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Margin = new Padding(3, 4, 3, 4);
+            MaximizeBox = false;
+            Name = "MainForm";
+            Text = "DronePulse Telemetry";
+            FormClosing += MainForm_FormClosing;
+            Load += MainForm_Load;
+            attitudeBox.ResumeLayout(false);
+            gpsBox.ResumeLayout(false);
+            posBox.ResumeLayout(false);
+            statusStrip.ResumeLayout(false);
+            statusStrip.PerformLayout();
+            connectionBox.ResumeLayout(false);
+            serialPanel.ResumeLayout(false);
+            serialPanel.PerformLayout();
+            udpPanel.ResumeLayout(false);
+            udpPanel.PerformLayout();
+            tcpPanel.ResumeLayout(false);
+            tcpPanel.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
