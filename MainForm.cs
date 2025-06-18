@@ -69,7 +69,7 @@ namespace DronePulse
             {
                 _connection?.Dispose(); // Dispose previous connection if any
                 IConnection? connection = null;
-                string selectedType = connectionTypeComboBox.SelectedItem.ToString() ?? "Serial";
+                string selectedType = connectionTypeComboBox?.SelectedItem?.ToString() ?? "Serial";
 
                 switch (selectedType)
                 {
@@ -111,10 +111,25 @@ namespace DronePulse
 
         private void ConnectionTypeComboBox_SelectedIndexChanged(object? sender, EventArgs e)
         {
-            string selectedType = connectionTypeComboBox.SelectedItem.ToString() ?? "Serial";
-            serialPanel.Visible = selectedType == "Serial";
-            udpPanel.Visible = selectedType == "UDP";
-            tcpPanel.Visible = selectedType == "TCP";
+            string selectedType = connectionTypeComboBox?.SelectedItem?.ToString() ?? "Serial";
+            if(selectedType == "Serial")
+            {
+             comPortComboBox.Items.Clear();
+             comPortComboBox.Items.AddRange(SerialPort.GetPortNames());
+            if (comPortComboBox.Items.Contains(PortName))
+            {
+                comPortComboBox.SelectedItem = PortName;
+            }
+            else if (comPortComboBox.Items.Count > 0)
+            {
+                comPortComboBox.SelectedIndex = 0;
+            }
+            baudRateTextBox.Text = BaudRate.ToString();    
+            }
+            
+            if (serialPanel != null) serialPanel.Visible = selectedType == "Serial";
+            if (udpPanel != null) udpPanel.Visible = selectedType == "UDP";
+            if (tcpPanel != null) tcpPanel.Visible = selectedType == "TCP";
         }
 
         private void DisconnectButton_Click(object? sender, EventArgs e)

@@ -1,6 +1,7 @@
 using DronePulse.Interfaces;
 using System.Net;
 using System.Net.Sockets;
+using System.Diagnostics;
 
 namespace DronePulse.Connections
 {
@@ -10,10 +11,20 @@ namespace DronePulse.Connections
         private IPEndPoint? _remoteEndPoint;
 
         public UdpConnection(int localPort)
-        {
-            _udpClient = new UdpClient(localPort);
-            _remoteEndPoint = new IPEndPoint(IPAddress.Any, 0);
-        }
+{
+    try
+    {
+        Debug.WriteLine($"Creating UDP client on port {localPort}");
+        _udpClient = new UdpClient(localPort);
+        _remoteEndPoint = new IPEndPoint(IPAddress.Any, 0);
+        Debug.WriteLine($"UDP client created successfully on port {localPort}");
+    }
+    catch (Exception ex)
+    {
+        Debug.WriteLine($"Error creating UDP client: {ex.Message}");
+        throw;
+    }
+}
 
         public bool IsOpen => _udpClient.Client != null && _udpClient.Client.IsBound;
 

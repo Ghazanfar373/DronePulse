@@ -34,6 +34,7 @@ namespace DronePulse
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             attitudeBox = new GroupBox();
             rollLabel = new Label();
             pitchLabel = new Label();
@@ -48,6 +49,8 @@ namespace DronePulse
             headingLabel = new Label();
             statusStrip = new StatusStrip();
             statusLabel = new ToolStripStatusLabel();
+            toolStripDropDownButton1 = new ToolStripDropDownButton();
+            connectionsToolStripMenuItem = new ToolStripMenuItem();
             connectionBox = new GroupBox();
             connectButton = new Button();
             disconnectButton = new Button();
@@ -180,23 +183,39 @@ namespace DronePulse
             headingLabel.Size = new Size(320, 31);
             headingLabel.TabIndex = 1;
             // 
-            // statusStrip
+            // statusStrip                             
             // 
             statusStrip.ImageScalingSize = new Size(20, 20);
-            statusStrip.Items.AddRange(new ToolStripItem[] { statusLabel });
-            statusStrip.Location = new Point(0, 505);
+            statusStrip.Items.AddRange(new ToolStripItem[] { statusLabel, toolStripDropDownButton1 });
+            statusStrip.Location = new Point(0, 473);
             statusStrip.Name = "statusStrip";
             statusStrip.Padding = new Padding(1, 0, 16, 0);
-            statusStrip.Size = new Size(808, 22);
+            statusStrip.Size = new Size(739, 26);
             statusStrip.TabIndex = 3;
             statusStrip.Text = "statusStrip1";
             // 
             // statusLabel
             // 
             statusLabel.Name = "statusLabel";
-            statusLabel.Size = new Size(0, 16);
+            statusLabel.Size = new Size(0, 20);
             // 
-            // connectionBox
+            // toolStripDropDownButton1
+            // 
+            toolStripDropDownButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripDropDownButton1.DropDownItems.AddRange(new ToolStripItem[] { connectionsToolStripMenuItem });
+            //toolStripDropDownButton1.Image = (Image)resources.GetObject("toolStripDropDownButton1.Image");
+            toolStripDropDownButton1.ImageTransparentColor = Color.Magenta;
+            toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            toolStripDropDownButton1.Size = new Size(34, 24);
+            toolStripDropDownButton1.Text = "toolStripDropDownButton1";
+            // 
+            // connectionsToolStripMenuItem
+            // 
+            connectionsToolStripMenuItem.Name = "connectionsToolStripMenuItem";
+            connectionsToolStripMenuItem.Size = new Size(224, 26);
+            connectionsToolStripMenuItem.Text = "Connections";
+            // 
+            //connectionBox
             // 
             connectionBox.Controls.Add(connectButton);
             connectionBox.Controls.Add(disconnectButton);
@@ -371,7 +390,7 @@ namespace DronePulse
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(808, 527);
+            ClientSize = new Size(739, 499);
             Controls.Add(statusStrip);
             Controls.Add(posBox);
             Controls.Add(gpsBox);
@@ -379,7 +398,6 @@ namespace DronePulse
             Controls.Add(attitudeBox);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 4, 3, 4);
-            MaximizeBox = false;
             Name = "MainForm";
             Text = "DronePulse Telemetry";
             FormClosing += MainForm_FormClosing;
@@ -434,5 +452,7 @@ namespace DronePulse
         private TextBox tcpIpAddressTextBox;
         private Label tcpPortLabel;
         private TextBox tcpPortTextBox;
+        private ToolStripDropDownButton toolStripDropDownButton1;
+        private ToolStripMenuItem connectionsToolStripMenuItem;
     }
 }
