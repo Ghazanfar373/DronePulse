@@ -35,6 +35,18 @@ namespace DronePulse.Connections
             // For UDP, the socket is "open" upon instantiation.
         }
 
+        public Task ConnectAsync()
+        {
+            // UDP is connectionless, so just return a completed task
+            return Task.CompletedTask;
+        }
+
+        public Task DisconnectAsync()
+        {
+            // No explicit disconnection needed for UDP
+            return Task.CompletedTask;
+        }
+
         public void Dispose()
         {
             _udpClient.Dispose();
@@ -60,6 +72,21 @@ namespace DronePulse.Connections
             _remoteEndPoint = result.RemoteEndPoint;
             Array.Copy(result.Buffer, 0, buffer, offset, result.Buffer.Length);
             return result.Buffer.Length;
+        }
+
+        public async Task WriteAsync(byte[] buffer, int offset, int count, CancellationToken token = default)
+        {
+            if (!IsOpen || _remoteEndPoint == null)
+                throw new InvalidOperationException("Connection is not open or remote endpoint is not set");
+
+            try
+            {
+                await _udpClient.SendAsync(buffer, count, _remoteEndPoint);
+            }
+            catch (Exception ex)
+            {
+                throw new IOException("Error writing to UDP connection", ex);
+            }
         }
     }
 }

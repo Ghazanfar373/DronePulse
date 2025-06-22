@@ -30,8 +30,8 @@ static class Program
 
         var mainForm = new MainForm
         {
-            PortName = portName,
-            BaudRate = baudRate
+            //PortName = portName,
+            //BaudRate = baudRate
         };
 
         Application.Run(mainForm);

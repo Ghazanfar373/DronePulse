@@ -34,7 +34,6 @@ namespace DronePulse
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             attitudeBox = new GroupBox();
             rollLabel = new Label();
             pitchLabel = new Label();
@@ -183,30 +182,29 @@ namespace DronePulse
             headingLabel.Size = new Size(320, 31);
             headingLabel.TabIndex = 1;
             // 
-            // statusStrip                             
+            // statusStrip
             // 
             statusStrip.ImageScalingSize = new Size(20, 20);
             statusStrip.Items.AddRange(new ToolStripItem[] { statusLabel, toolStripDropDownButton1 });
-            statusStrip.Location = new Point(0, 473);
+            statusStrip.Location = new Point(0, 475);
             statusStrip.Name = "statusStrip";
             statusStrip.Padding = new Padding(1, 0, 16, 0);
-            statusStrip.Size = new Size(739, 26);
+            statusStrip.Size = new Size(739, 24);
             statusStrip.TabIndex = 3;
             statusStrip.Text = "statusStrip1";
             // 
             // statusLabel
             // 
             statusLabel.Name = "statusLabel";
-            statusLabel.Size = new Size(0, 20);
+            statusLabel.Size = new Size(0, 18);
             // 
             // toolStripDropDownButton1
             // 
             toolStripDropDownButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
             toolStripDropDownButton1.DropDownItems.AddRange(new ToolStripItem[] { connectionsToolStripMenuItem });
-            //toolStripDropDownButton1.Image = (Image)resources.GetObject("toolStripDropDownButton1.Image");
             toolStripDropDownButton1.ImageTransparentColor = Color.Magenta;
             toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            toolStripDropDownButton1.Size = new Size(34, 24);
+            toolStripDropDownButton1.Size = new Size(14, 22);
             toolStripDropDownButton1.Text = "toolStripDropDownButton1";
             // 
             // connectionsToolStripMenuItem
@@ -214,8 +212,9 @@ namespace DronePulse
             connectionsToolStripMenuItem.Name = "connectionsToolStripMenuItem";
             connectionsToolStripMenuItem.Size = new Size(224, 26);
             connectionsToolStripMenuItem.Text = "Connections";
+            //connectionsToolStripMenuItem.Click += ConnectButton_Click;
             // 
-            //connectionBox
+            // connectionBox
             // 
             connectionBox.Controls.Add(connectButton);
             connectionBox.Controls.Add(disconnectButton);
@@ -386,25 +385,87 @@ namespace DronePulse
             tcpPortTextBox.TabIndex = 1;
             tcpPortTextBox.Text = "5760";
             // 
+            // HUD Panel
+            // 
+            hudBox = new GroupBox();
+            hudBox.Location = new Point(12, 12);
+            hudBox.Name = "hudBox";
+            hudBox.Size = new Size(280, 200);
+            hudBox.TabIndex = 5;
+            hudBox.TabStop = false;
+            hudBox.Text = "Flight HUD";
+            
+            // Add HUD labels
+            groundSpeedLabel = new Label();
+            // Initialize HUD Panel
+            hudBox = new GroupBox();
+            hudBox.Location = new Point(12, 12);
+            hudBox.Name = "hudBox";
+            hudBox.Size = new Size(280, 200);
+            hudBox.TabIndex = 5;
+            hudBox.TabStop = false;
+            hudBox.Text = "Flight HUD";
+            
+            // Add HUD labels
+            groundSpeedLabel = new Label();
+            groundSpeedLabel.Location = new Point(10, 25);
+            groundSpeedLabel.Name = "groundSpeedLabel";
+            groundSpeedLabel.Size = new Size(250, 20);
+            hudBox.Controls.Add(groundSpeedLabel);
+            
+            airSpeedLabel = new Label();
+            airSpeedLabel.Location = new Point(10, 50);
+            airSpeedLabel.Name = "airSpeedLabel";
+            airSpeedLabel.Size = new Size(250, 20);
+            hudBox.Controls.Add(airSpeedLabel);
+            
+            climbRateLabel = new Label();
+            climbRateLabel.Location = new Point(10, 75);
+            climbRateLabel.Name = "climbRateLabel";
+            climbRateLabel.Size = new Size(250, 20);
+            hudBox.Controls.Add(climbRateLabel);
+            
+            flightModeLabel = new Label();
+            flightModeLabel.Location = new Point(10, 100);
+            flightModeLabel.Name = "flightModeLabel";
+            flightModeLabel.Size = new Size(250, 20);
+            hudBox.Controls.Add(flightModeLabel);
+            
+            batteryLabel = new Label();
+            batteryLabel.Location = new Point(10, 125);
+            batteryLabel.Name = "batteryLabel";
+            batteryLabel.Size = new Size(250, 20);
+            hudBox.Controls.Add(batteryLabel);
+            
+            waypointLabel = new Label();
+            waypointLabel.Location = new Point(10, 150);
+            waypointLabel.Name = "waypointLabel";
+            waypointLabel.Size = new Size(250, 20);
+            hudBox.Controls.Add(waypointLabel);
+            
+            distanceToWaypointLabel = new Label();
+            distanceToWaypointLabel.Location = new Point(10, 175);
+            distanceToWaypointLabel.Name = "distanceToWaypointLabel";
+            distanceToWaypointLabel.Size = new Size(250, 20);
+            hudBox.Controls.Add(distanceToWaypointLabel);
+
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(739, 499);
-            Controls.Add(statusStrip);
-            Controls.Add(posBox);
-            Controls.Add(gpsBox);
+            ClientSize = new Size(800, 500);
+            Controls.Add(hudBox);
             Controls.Add(connectionBox);
             Controls.Add(attitudeBox);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Controls.Add(statusStrip);
             Margin = new Padding(3, 4, 3, 4);
             Name = "MainForm";
-            Text = "DronePulse Telemetry";
+            Text = "DronePulse";
             FormClosing += MainForm_FormClosing;
             Load += MainForm_Load;
-            attitudeBox.ResumeLayout(false);
-            gpsBox.ResumeLayout(false);
-            posBox.ResumeLayout(false);
+            
+            // Resume layouts
             statusStrip.ResumeLayout(false);
             statusStrip.PerformLayout();
             connectionBox.ResumeLayout(false);
@@ -414,6 +475,10 @@ namespace DronePulse
             udpPanel.PerformLayout();
             tcpPanel.ResumeLayout(false);
             tcpPanel.PerformLayout();
+            attitudeBox.ResumeLayout(false);
+            gpsBox.ResumeLayout(false);
+            posBox.ResumeLayout(false);
+            hudBox.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
 
@@ -421,38 +486,46 @@ namespace DronePulse
 
         #endregion
 
-        private GroupBox attitudeBox;
-        private Label rollLabel;
-        private Label pitchLabel;
-        private Label yawLabel;
-        private GroupBox gpsBox;
-        private Label fixLabel;
-        private Label latLabel;
-        private Label lonLabel;
-        private Label altLabel;
-        private GroupBox posBox;
-        private Label relAltLabel;
-        private Label headingLabel;
-        private StatusStrip statusStrip;
-        private ToolStripStatusLabel statusLabel;
-        private GroupBox connectionBox;
-        private Button connectButton;
-        private Button disconnectButton;
-        private ComboBox connectionTypeComboBox;
-        private Panel serialPanel;
-        private Label comPortLabel;
-        private ComboBox comPortComboBox;
-        private Label baudRateLabel;
-        private TextBox baudRateTextBox;
-        private Panel udpPanel;
-        private Label udpPortLabel;
-        private TextBox udpPortTextBox;
-        private Panel tcpPanel;
-        private Label tcpIpAddressLabel;
-        private TextBox tcpIpAddressTextBox;
-        private Label tcpPortLabel;
-        private TextBox tcpPortTextBox;
-        private ToolStripDropDownButton toolStripDropDownButton1;
-        private ToolStripMenuItem connectionsToolStripMenuItem;
+        private System.Windows.Forms.GroupBox? attitudeBox;
+        private System.Windows.Forms.GroupBox? hudBox;
+        private System.Windows.Forms.Label? groundSpeedLabel;
+        private System.Windows.Forms.Label? airSpeedLabel;
+        private System.Windows.Forms.Label? climbRateLabel;
+        private System.Windows.Forms.Label? flightModeLabel;
+        private System.Windows.Forms.Label? batteryLabel;
+        private System.Windows.Forms.Label? waypointLabel;
+        private System.Windows.Forms.Label? distanceToWaypointLabel;
+        private System.Windows.Forms.Label? rollLabel;
+        private System.Windows.Forms.Label? pitchLabel;
+        private System.Windows.Forms.Label? yawLabel;
+        private System.Windows.Forms.GroupBox? gpsBox;
+        private System.Windows.Forms.Label? fixLabel;
+        private System.Windows.Forms.Label? latLabel;
+        private System.Windows.Forms.Label? lonLabel;
+        private System.Windows.Forms.Label? altLabel;
+        private System.Windows.Forms.GroupBox? posBox;
+        private System.Windows.Forms.Label? relAltLabel;
+        private System.Windows.Forms.Label? headingLabel;
+        private System.Windows.Forms.StatusStrip? statusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel? statusLabel;
+        private System.Windows.Forms.GroupBox? connectionBox;
+        private System.Windows.Forms.Button? connectButton;
+        private System.Windows.Forms.Button? disconnectButton;
+        private System.Windows.Forms.ComboBox? connectionTypeComboBox;
+        private System.Windows.Forms.Panel? serialPanel;
+        private System.Windows.Forms.Label? comPortLabel;
+        private System.Windows.Forms.ComboBox? comPortComboBox;
+        private System.Windows.Forms.Label? baudRateLabel;
+        private System.Windows.Forms.TextBox? baudRateTextBox;
+        private System.Windows.Forms.Panel? udpPanel;
+        private System.Windows.Forms.Label? udpPortLabel;
+        private System.Windows.Forms.TextBox? udpPortTextBox;
+        private System.Windows.Forms.Panel? tcpPanel;
+        private System.Windows.Forms.Label? tcpIpAddressLabel;
+        private System.Windows.Forms.TextBox? tcpIpAddressTextBox;
+        private System.Windows.Forms.Label? tcpPortLabel;
+        private System.Windows.Forms.TextBox? tcpPortTextBox;
+        private System.Windows.Forms.ToolStripDropDownButton? toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripMenuItem? connectionsToolStripMenuItem;
     }
 }
